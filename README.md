@@ -38,4 +38,4 @@ The Link methods first parameters is the origin field, that fires validation eve
     </EditForm>
 
 ## 3. Profit:
-<img src="https://github.com/Plevi1337/BlazorLinkedValidations/tree/master/.github/resources/fluent_example.gif" />
+<img src="https://raw.githubusercontent.com/Plevi1337/BlazorLinkedValidations/master/.github/resources/fluent_example.gif" />
