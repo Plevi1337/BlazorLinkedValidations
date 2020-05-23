@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Plevi1337</Authors>
+    <Description>A library to link together dependent Blazor form fields to fire validation events on multiple field by editing only one.</Description>
+    <RepositoryUrl>https://github.com/Plevi1337/BlazorLinkedValidations</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Plevi1337/BlazorLinkedValidations</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Code\Git-Private\BlazorLinkedValidations\src\BlazorLinkedValidations\BlazorLinkedValidations\BlazorLinkedValidations.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
