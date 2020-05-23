@@ -4,9 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Version>0.0.1</Version>
     <Authors>Plevi1337</Authors>
-    <Description>A library to link together dependent Blazor form fields to fire validation events on multiple field by editing only one.</Description>
+    <Description>This library allows you to link together Blazor form fields to fire validations on multiple fields without requiring a full form validation.</Description>
     <RepositoryUrl>https://github.com/Plevi1337/BlazorLinkedValidations</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Plevi1337/BlazorLinkedValidations</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Blazor Fluent Validation Form</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

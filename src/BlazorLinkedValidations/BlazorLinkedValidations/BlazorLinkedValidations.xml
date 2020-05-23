@@ -4,5 +4,62 @@
         <name>BlazorLinkedValidations</name>
     </assembly>
     <members>
+        <member name="T:BlazorLinkedValidations.ValidationLinker">
+            <summary>
+            Validation linker component, fires a changed event for all the linked fields.
+            The events fired by this component won't fire another round of events. Only the direct links work.
+            </summary>
+        </member>
+        <member name="P:BlazorLinkedValidations.ValidationLinker.EditContext">
+            <summary>
+            Cascading Edit Context parameter, if null the OnInitialized method throws an ArgumentNullException.
+            </summary>
+        </member>
+        <member name="P:BlazorLinkedValidations.ValidationLinker.Linker">
+            <summary>
+            Linker parameter, if null the OnInitialized method throws an ArgumentNullException
+            </summary>
+        </member>
+        <member name="F:BlazorLinkedValidations.ValidationLinker._isFiring">
+            <summary>
+            Indicates whether the this component is firing the changed events or another source.
+            </summary>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinker.OnInitialized">
+            <summary>
+            Checks the component parameters for nullability and subscribes to the FieldChanged event of the EditContext.
+            </summary>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinker.OnFieldChanged(System.Object,Microsoft.AspNetCore.Components.Forms.FieldChangedEventArgs)">
+            <summary>
+            Field Change event handler. Fires a changed event for every linked field.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinker.Dispose">
+            <summary>
+            Unsubscribes from the FieldChanged event of the EditContext.
+            </summary>
+        </member>
+        <member name="T:BlazorLinkedValidations.ValidationLinkerBase">
+            <summary>
+            This is the abstract base class of the linkers.
+            </summary>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.Link(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
+            <summary>
+            Adds the targets to the list of fields to validate when the origin field gets edited.
+            </summary>
+            <param name="origin">The origin of the links.</param>
+            <param name="targets">The targets of the links.</param>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.GetLinkedFields(Microsoft.AspNetCore.Components.Forms.FieldIdentifier)">
+            <summary>
+            Returns the fields linked to the parameter field.
+            </summary>
+            <param name="origin">The origin field.</param>
+            <returns>The list of the linked fields, empty if there are none.</returns>
+        </member>
     </members>
 </doc>
