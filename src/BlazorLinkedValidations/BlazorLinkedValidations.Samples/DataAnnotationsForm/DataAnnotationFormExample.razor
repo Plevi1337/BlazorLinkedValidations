@@ -1,0 +1,30 @@
+﻿@page "/dataAnnotations"
+
+<EditForm Model="viewModel">
+  <DataAnnotationsValidator />
+  <ValidationLinker Linker="new DataAnnotationFormModelValidationLinker(viewModel)" />
+
+  <div class="form-group">
+    <label for="integerProperty">Integer Property</label>
+    <InputNumber @bind-Value="viewModel.IntegerProperty" id="integerProperty" />
+    <ValidationMessage For="() => viewModel.IntegerProperty" />
+  </div>
+
+  <div class="form-group">
+    <label for="stringProperty">String Property</label>
+    <InputText @bind-Value="viewModel.StringProperty" id="stringProperty" />
+    <ValidationMessage For="() => viewModel.StringProperty" />
+  </div>
+
+  <div class="form-group">
+    <label for="dateProperty">Date Property</label>
+    <InputDate @bind-Value="viewModel.DateProperty" id="dateProperty" />
+    <ValidationMessage For="() => viewModel.DateProperty" />
+  </div>
+
+  <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+  private DataAnnotationFormModel viewModel = new DataAnnotationFormModel();
+}

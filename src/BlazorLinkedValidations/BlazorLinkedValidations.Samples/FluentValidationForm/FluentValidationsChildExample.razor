@@ -1,0 +1,27 @@
+﻿<div class="form-group">
+  <label for="@nameof(ChildModel.City)">@nameof(ChildModel.City)</label>
+  <InputText @bind-Value="ChildModel.City" id="@nameof(ChildModel.City)" />
+  <ValidationMessage For="() => ChildModel.City" />
+</div>
+<div class="form-group">
+  <label for="@nameof(ChildModel.PostalCode)">@nameof(ChildModel.PostalCode)</label>
+  <InputText @bind-Value="ChildModel.PostalCode" id="@nameof(ChildModel.PostalCode)" />
+  <ValidationMessage For="() => ChildModel.PostalCode" />
+</div>
+<div class="form-group">
+  <label for="@nameof(ChildModel.Street)">@nameof(ChildModel.Street)</label>
+  <InputText @bind-Value="ChildModel.Street" id="@nameof(ChildModel.Street)" />
+  <ValidationMessage For="() => ChildModel.Street" />
+</div>
+<div class="form-group">
+  <label for="@nameof(ChildModel.Number)">@nameof(ChildModel.Number)</label>
+  <InputNumber @bind-Value="ChildModel.Number" id="@nameof(ChildModel.Number)" />
+  <ValidationMessage For="() => ChildModel.Number" />
+</div>
+@code {
+  [Parameter]
+  public FluentValidationsFormExampleModelChild ChildModel { get; set; }
+
+  [Parameter]
+  public EventCallback<FluentValidationsFormExampleModelChild> ChildModelChanged { get; set; }
+}

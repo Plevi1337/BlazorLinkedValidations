@@ -1,0 +1,25 @@
+﻿@page "/fluent"
+
+<EditForm Model="ViewModel">
+  <FluentValidationValidator />
+  <FluentValidationsChildExample @bind-ChildModel="ViewModel.Child" />
+  <ValidationLinker Linker="new FluentValidationsLinker(ViewModel)" />
+  <div class="form-group">
+    <label for="@nameof(ViewModel.Number1)">@nameof(ViewModel.Number1)</label>
+    <InputNumber @bind-Value="ViewModel.Number1" id="@nameof(ViewModel.Number1)" />
+    <ValidationMessage For="() => ViewModel.Number1" />
+  </div>
+  <div class="form-group">
+    <label for="@nameof(ViewModel.Number2)">@nameof(ViewModel.Number2)</label>
+    <InputNumber @bind-Value="ViewModel.Number2" id="@nameof(ViewModel.Number2)" />
+    <ValidationMessage For="() => ViewModel.Number2" />
+  </div>
+  <div class="form-group">
+    <label for="@nameof(ViewModel.Sum)">@nameof(ViewModel.Sum)</label>
+    <InputNumber @bind-Value="ViewModel.Sum" id="@nameof(ViewModel.Sum)" />
+    <ValidationMessage For="() => ViewModel.Sum" />
+  </div>
+</EditForm>
+@code {
+  public FluentValidationsFormExampleModelParent ViewModel { get; set; } = new FluentValidationsFormExampleModelParent();
+}
