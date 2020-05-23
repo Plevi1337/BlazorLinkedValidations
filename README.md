@@ -8,11 +8,14 @@ There are more detailed samples in the [sample project](https://github.com/Plevi
 
 Create a linker class that inherits from the ValidationLinkerBase class:
 
+```csharp
     public class FluentValidationsLinker : ValidationLinkerBase
     { }
+```
 
 Then setup the links in the contstructor: 
 
+```csharp
     public class FluentValidationsLinker : ValidationLinkerBase
     {
         public FluentValidationsLinker(FluentValidationsFormExampleModelParent model)
@@ -23,11 +26,13 @@ Then setup the links in the contstructor:
         Link(() => model.Sum, () => model.Child.Street);
         }
     }
+```
 
 The Link methods first parameters is the origin field, that fires validation events on the remaining parameters.
 
 ## 2. Add the ValidationLinker component to the form: 
 
+```html 
     <EditForm Model="ViewModel">
         <FluentValidationValidator />
         <FluentValidationsChildExample @bind-ChildModel="ViewModel.Child" />
@@ -36,6 +41,7 @@ The Link methods first parameters is the origin field, that fires validation eve
         .
         .    
     </EditForm>
+```
 
 ## 3. Profit:
 <img src="https://raw.githubusercontent.com/Plevi1337/BlazorLinkedValidations/master/.github/resources/fluent_example.gif" />
