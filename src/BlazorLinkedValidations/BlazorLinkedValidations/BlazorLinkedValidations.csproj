@@ -13,6 +13,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Code\Git-Private\BlazorLinkedValidations\src\BlazorLinkedValidations\BlazorLinkedValidations\BlazorLinkedValidations.xml</DocumentationFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

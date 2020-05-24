@@ -15,13 +15,13 @@ namespace BlazorLinkedValidations
     /// Cascading Edit Context parameter, if null the OnInitialized method throws an ArgumentNullException.
     /// </summary>
     [CascadingParameter]
-    EditContext EditContext { get; set; }
+    public EditContext EditContext { get; set; } = null!;
 
     /// <summary>
     /// Linker parameter, if null the OnInitialized method throws an ArgumentNullException
     /// </summary>
     [Parameter]
-    public ValidationLinkerBase Linker { get; set; }
+    public ValidationLinkerBase Linker { get; set; } = null!;
 
     /// <summary>
     /// Indicates whether the this component is firing the changed events or another source.
@@ -43,7 +43,7 @@ namespace BlazorLinkedValidations
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void OnFieldChanged(object sender, FieldChangedEventArgs e)
+    private void OnFieldChanged(object? sender, FieldChangedEventArgs e)
     {
       if (!_isFiring)
       {

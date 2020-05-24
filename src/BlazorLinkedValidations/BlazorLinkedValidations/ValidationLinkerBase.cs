@@ -11,24 +11,27 @@ namespace BlazorLinkedValidations
   /// </summary>
   public abstract class ValidationLinkerBase
   {
-    private Dictionary<FieldIdentifier, IEnumerable<FieldIdentifier>> _links = new Dictionary<FieldIdentifier, IEnumerable<FieldIdentifier>>();
+    private readonly Dictionary<FieldIdentifier, IEnumerable<FieldIdentifier>> _links = new Dictionary<FieldIdentifier, IEnumerable<FieldIdentifier>>();
 
     /// <summary>
     /// Adds the targets to the list of fields to validate when the origin field gets edited.
     /// </summary>
     /// <param name="origin">The origin of the links.</param>
     /// <param name="targets">The targets of the links.</param>
-    protected void Link(Expression<Func<object>> origin, params Expression<Func<object>>[] targets)
+    protected void LinkForward(Expression<Func<object>> origin, params Expression<Func<object>>[] targets)
     {
+      _ = origin ?? throw new ArgumentNullException(nameof(origin));
+      _ = targets ?? throw new ArgumentNullException(nameof(targets));
+
       FieldIdentifier originField = FieldIdentifier.Create(origin);
-      IEnumerable<FieldIdentifier> targetFields = targets.Select(FieldIdentifier.Create);
+      IEnumerable<FieldIdentifier> targetFields = targets.Select(FieldIdentifier.Create).Distinct();
       if (_links.ContainsKey(originField))
       {
         _links[originField] = _links[originField].Concat(targetFields).Distinct();
       }
       else
       {
-        _links.Add(FieldIdentifier.Create(origin), targets.Select(FieldIdentifier.Create));
+        _links.Add(FieldIdentifier.Create(origin), targetFields);
       }
     }
 

@@ -47,7 +47,7 @@
             This is the abstract base class of the linkers.
             </summary>
         </member>
-        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.Link(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.LinkForward(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
             <summary>
             Adds the targets to the list of fields to validate when the origin field gets edited.
             </summary>

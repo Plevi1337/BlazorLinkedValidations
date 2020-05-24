@@ -4,7 +4,7 @@
   {
     public DataAnnotationFormModelValidationLinker(DataAnnotationFormModel model)
     {
-      Link(() => model.IntegerProperty, () => model.StringProperty, () => model.DateProperty);
+      LinkForward(() => model.IntegerProperty, () => model.StringProperty, () => model.DateProperty);
     }
   }
 }
