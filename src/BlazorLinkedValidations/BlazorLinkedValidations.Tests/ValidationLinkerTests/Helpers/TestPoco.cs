@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlazorLinkedValidations.Tests
+namespace BlazorLinkedValidations.Tests.ValidationLinkerTests.Helpers
 {
   public class TestPoco
   {

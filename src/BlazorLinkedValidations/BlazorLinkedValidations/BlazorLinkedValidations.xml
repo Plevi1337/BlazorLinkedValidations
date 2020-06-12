@@ -47,19 +47,44 @@
             This is the abstract base class of the linkers.
             </summary>
         </member>
-        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.LinkForward(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
-            <summary>
-            Adds the targets to the list of fields to validate when the origin field gets edited.
-            </summary>
-            <param name="origin">The origin of the links.</param>
-            <param name="targets">The targets of the links.</param>
-        </member>
         <member name="M:BlazorLinkedValidations.ValidationLinkerBase.GetLinkedFields(Microsoft.AspNetCore.Components.Forms.FieldIdentifier)">
             <summary>
             Returns the fields linked to the parameter field.
             </summary>
             <param name="origin">The origin field.</param>
             <returns>The list of the linked fields, empty if there are none.</returns>
+        </member>
+        <member name="P:BlazorLinkedValidations.ValidationLinkerBase.OriginFields">
+            <summary>
+            Gets the registered origin fields.
+            </summary>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.LinkForward(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
+            <summary>
+            Sets up a one way link between the origin and every target field.
+            </summary>
+            <param name="origin">The origin of the links.</param>
+            <param name="targets">The targets of the links.</param>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.LinkBackward(System.Linq.Expressions.Expression{System.Func{System.Object}},System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
+            <summary>
+            Sets up a one way link between every origin and the target field.
+            </summary>
+            <param name="target"></param>
+            <param name="origins"></param>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.LinkCross(System.Linq.Expressions.Expression{System.Func{System.Object}}[])">
+            <summary>
+            Sets up a two way link between every field.
+            </summary>
+            <param name="fields"></param>
+        </member>
+        <member name="M:BlazorLinkedValidations.ValidationLinkerBase.AddLink(Microsoft.AspNetCore.Components.Forms.FieldIdentifier,Microsoft.AspNetCore.Components.Forms.FieldIdentifier[])">
+            <summary>
+            Sets up a one way link between the origin and the target field.
+            </summary>
+            <param name="origin">The origin of the one way link.</param>
+            <param name="target">The target of the one way link.</param>
         </member>
     </members>
 </doc>

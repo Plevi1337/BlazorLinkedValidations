@@ -8,9 +8,8 @@ namespace BlazorLinkedValidations
   /// Validation linker component, fires a changed event for all the linked fields.
   /// The events fired by this component won't fire another round of events. Only the direct links work.
   /// </summary>
-  public class ValidationLinker : ComponentBase, IDisposable
+  public class ValidationLinkerHost : ComponentBase, IDisposable
   {
-
     /// <summary>
     /// Cascading Edit Context parameter, if null the OnInitialized method throws an ArgumentNullException.
     /// </summary>

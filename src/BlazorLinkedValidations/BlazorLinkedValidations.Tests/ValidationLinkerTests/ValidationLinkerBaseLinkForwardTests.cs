@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using BlazorLinkedValidations.Tests.ValidationLinkerTests.Helpers;
+using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Xunit;
 
-namespace BlazorLinkedValidations.Tests
+namespace BlazorLinkedValidations.ValidationLinker.Tests
 {
   public class ValidationLinkerBaseLinkForwardTests
   {
@@ -20,7 +21,7 @@ namespace BlazorLinkedValidations.Tests
         new Expression<Func<object>>[]{
           () => poco.StringProperty,
         })};
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -36,7 +37,7 @@ namespace BlazorLinkedValidations.Tests
       // Arrange
       TestPoco poco = new TestPoco();
       (Expression<Func<object>> origin, IEnumerable<Expression<Func<object>>> targets)[] links = Enumerable.Empty<(Expression<Func<object>> origin, IEnumerable<Expression<Func<object>>> targets)>().ToArray();
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -57,7 +58,7 @@ namespace BlazorLinkedValidations.Tests
           () => poco.StringProperty,
           () => poco.DoubleProperty,
         })};
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -83,7 +84,7 @@ namespace BlazorLinkedValidations.Tests
         new Expression<Func<object>>[]{
           () => poco.DoubleProperty,
         })};
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -106,7 +107,7 @@ namespace BlazorLinkedValidations.Tests
           () => poco.StringProperty,
           () => poco.StringProperty,
         })};
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -132,7 +133,7 @@ namespace BlazorLinkedValidations.Tests
           () => poco.StringProperty,
         }),
         };
-      TestLinkerStub stub = new TestLinkerStub(links);
+      ForwardLinkerSetupClass stub = new ForwardLinkerSetupClass(links);
 
       // Act
       IEnumerable<FieldIdentifier> linkedFields = stub.GetLinkedFields(FieldIdentifier.Create(() => poco.IntegerProperty));
@@ -155,7 +156,7 @@ namespace BlazorLinkedValidations.Tests
         })};
 
       // Assert & Act
-      Assert.Throws<ArgumentNullException>(() => new TestLinkerStub(links));
+      Assert.Throws<ArgumentNullException>(() => new ForwardLinkerSetupClass(links));
     }
 
     [Fact]
@@ -169,7 +170,7 @@ namespace BlazorLinkedValidations.Tests
         null)};
 
       // Assert & Act
-      Assert.Throws<ArgumentNullException>(() => new TestLinkerStub(links));
+      Assert.Throws<ArgumentNullException>(() => new ForwardLinkerSetupClass(links));
     }
   }
 }

@@ -3,7 +3,7 @@
 <EditForm Model="ViewModel">
   <FluentValidationValidator />
   <FluentValidationsChildExample @bind-ChildModel="ViewModel.Child" />
-  <ValidationLinker Linker="new FluentValidationsLinker(ViewModel)" />
+  <ValidationLinkerHost Linker="new FluentValidationsParentLinker(ViewModel)" />
   <div class="form-group">
     <label for="@nameof(ViewModel.Number1)">@nameof(ViewModel.Number1)</label>
     <InputNumber @bind-Value="ViewModel.Number1" id="@nameof(ViewModel.Number1)" />
